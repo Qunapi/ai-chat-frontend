@@ -59,8 +59,9 @@ const HomePage = () => {
     setOnRequest(true);
 
     const { response, err } = await chatCompletion({
-      prompt: question,
-      language,
+      user_ip: crypto.randomUUID(),
+      message: question,
+      lang: language,
       country,
     });
 
@@ -69,7 +70,7 @@ const HomePage = () => {
         ...newMessages,
         {
           type: messageType.answer,
-          content: response.text,
+          content: response.response_message,
         },
       ]);
     }
