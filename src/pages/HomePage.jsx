@@ -61,7 +61,7 @@ const HomePage = () => {
     const { response, err } = await chatCompletion({
       prompt: question,
       language,
-      county,
+      country,
     });
 
     if (response) {
@@ -241,7 +241,10 @@ const HomePage = () => {
                 onRequest ? (
                   <CircularProgress size="1.5rem" />
                 ) : (
-                  <SendOutlinedIcon />
+                  <SendOutlinedIcon
+                    sx={{ cursor: "pointer" }}
+                    onClick={() => getAnswer()}
+                  />
                 )
               }
               autoFocus
